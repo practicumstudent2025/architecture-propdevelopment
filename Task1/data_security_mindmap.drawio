@@ -1,0 +1,109 @@
+<mxfile host="65bd71144e">
+    <diagram name="Безопасность данных PropDevelopment" id="data-security-mindmap">
+        <mxGraphModel dx="790" dy="513" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1000" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="center" value="Безопасность данных&#10;PropDevelopment" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=16;fontStyle=1;fontColor=#000000;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="450" width="200" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="public" value="Публичные данные" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;fontColor=#000000;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="390" y="360" width="180" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="internal" value="Внутренние данные" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1;fontColor=#000000;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="830" y="360" width="180" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="confidential" value="Конфиденциальные данные" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1;fontColor=#000000;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="390" y="560" width="180" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="secret" value="Секретные данные" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;fontStyle=1;fontColor=#000000;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="830" y="560" width="180" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge1" style="align=left;" parent="1" source="center" target="public" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge2" style="align=left;" parent="1" source="center" target="internal" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge3" style="align=left;" parent="1" source="center" target="confidential" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge4" style="align=left;" parent="1" source="center" target="secret" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="public-details" value="• Информация о ЖК&#10;• Цены на недвижимость&#10;• Услуги компании&#10;• Публичные новости" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontColor=#000000;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="390" y="240" width="180" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="public-risks" value="Риски:&#10;• Утечка: НЕЗНАЧИТЕЛЬНЫЙ&#10;• Потеря: НЕЗНАЧИТЕЛЬНЫЙ&#10;• Искажение: ЗНАЧИТЕЛЬНЫЙ&#10;• Некачественные: ЗНАЧИТЕЛЬНЫЙ&#10;• Обесценивание: НЕЗНАЧИТЕЛЬНЫЙ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;fontColor=#000000;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="110" y="350" width="210" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="internal-details" value="• Внутренние процессы&#10;• Техдокументация&#10;• Внутренние отчёты&#10;• Корпоративная информация" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontColor=#000000;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="830" y="240" width="180" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="internal-risks" value="Риски:&#10;• Утечка: ЗНАЧИТЕЛЬНЫЙ&#10;• Потеря: ЗНАЧИТЕЛЬНЫЙ&#10;• Искажение: ЗНАЧИТЕЛЬНЫЙ&#10;• Некачественные: ЗНАЧИТЕЛЬНЫЙ&#10;• Обесценивание: НЕЗНАЧИТЕЛЬНЫЙ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;fontColor=#000000;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="1080" y="350" width="240" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="confidential-details" value="• Персональные данные клиентов&#10;• Финансовая информация&#10;• Данные недвижимости&#10;• Данные собственников&#10;• Бизнес-данные" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontColor=#000000;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="110" y="550" width="210" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="confidential-risks" value="Риски:&#10;• Утечка: КРИТИЧЕСКИЙ&#10;• Потеря: КРИТИЧЕСКИЙ&#10;• Искажение: КРИТИЧЕСКИЙ&#10;• Некачественные: ЗНАЧИТЕЛЬНЫЙ&#10;• Обесценивание: ЗНАЧИТЕЛЬНЫЙ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;fontColor=#000000;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="390" y="680" width="180" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="secret-details" value="• Паспортные данные&#10;• Банковские реквизиты&#10;• Данные госорганов&#10;• Ключи доступа&#10;• Данные Умного дома" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontColor=#000000;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="830" y="670" width="180" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="secret-risks" value="Риски:&#10;• Утечка: КРИТИЧЕСКИЙ&#10;• Потеря: КРИТИЧЕСКИЙ&#10;• Искажение: КРИТИЧЕСКИЙ&#10;• Некачественные: КРИТИЧЕСКИЙ&#10;• Обесценивание: ЗНАЧИТЕЛЬНЫЙ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;fontColor=#000000;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="1080" y="550" width="240" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge5" style="align=left;" parent="1" source="public" target="public-details" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge6" style="align=left;" parent="1" source="public" target="public-risks" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge7" style="align=left;" parent="1" source="internal" target="internal-details" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge8" style="align=left;" parent="1" source="internal" target="internal-risks" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge9" style="align=left;" parent="1" source="confidential" target="confidential-details" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge10" style="align=left;" parent="1" source="confidential" target="confidential-risks" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge11" style="align=left;" parent="1" source="secret" target="secret-details" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge12" style="align=left;" parent="1" source="secret" target="secret-risks" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="public-justification" value="Обоснование:&#10;Публичные данные не содержат чувствительной информации, но искажение может навредить репутации компании" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;fontColor=#000000;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="110" y="240" width="210" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="internal-justification" value="Обоснование:&#10;Внутренние данные могут раскрыть конкурентные преимущества и процессы компании" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;fontColor=#000000;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="1080" y="470" width="240" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="confidential-justification" value="Обоснование:&#10;Нарушение ФЗ-152, штрафы, репутационные потери, финансовые убытки" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;fontColor=#000000;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="110" y="705" width="210" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="secret-justification" value="Обоснование:&#10;Угроза безопасности, криминальные последствия, остановка критических систем" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=9;fontColor=#000000;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="1080" y="680" width="240" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge13" style="align=left;" parent="1" source="public-risks" target="public-justification" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge14" style="align=left;" parent="1" source="internal-risks" target="internal-justification" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge15" style="align=left;" parent="1" source="confidential-risks" target="confidential-justification" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge16" style="align=left;" parent="1" source="secret-risks" target="secret-justification" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
