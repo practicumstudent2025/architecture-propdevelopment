@@ -16,7 +16,7 @@ test_connection() {
     # Тестируем изнутри существующего пода
     kubectl exec $from_pod --namespace=task5 -- sh -c "
         echo 'Проверка подключения к $to_service...'
-        if wget -qO- --timeout=5 http://$to_service; then
+        if curl -s --connect-timeout 5 http://$to_service; then
             echo '✅ Подключение успешно'
         else
             echo '❌ Подключение не удалось'
