@@ -10,36 +10,8 @@ minikube status
 
 # Если кластер не запущен, запускаем
 if ! minikube status | grep -q "Running"; then
-    echo "Запуск Minikube..."
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-        # macOS - проверяем архитектуру
-        if [[ $(uname -m) == "arm64" ]]; then
-            # Apple Silicon - пробуем разные драйверы
-            echo "Попытка запуска с драйвером qemu..."
-            if minikube start --driver=qemu --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0 2>/dev/null; then
-                echo "Успешно запущен с qemu"
-            else
-                echo "qemu не работает, пробуем docker..."
-                if minikube start --driver=docker --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0 2>/dev/null; then
-                    echo "Успешно запущен с docker"
-                else
-                    echo "docker не работает, пробуем vmware..."
-                    if minikube start --driver=vmware --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0 2>/dev/null; then
-                        echo "Успешно запущен с vmware"
-                    else
-                        echo "vmware не работает, пробуем virtualbox..."
-                        minikube start --driver=virtualbox --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0
-                    fi
-                fi
-            fi
-        else
-            # Intel Mac - используем hyperkit
-            minikube start --driver=hyperkit --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0
-        fi
-    else
-        # Linux - используем docker
-        minikube start --driver=docker --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0
-    fi
+    echo "Запуск Minikube с Docker драйвером..."
+    minikube start --driver=docker --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0
     
     # Проверяем успешность запуска
     if [ $? -ne 0 ]; then

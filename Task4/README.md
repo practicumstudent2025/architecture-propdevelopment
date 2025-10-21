@@ -4,6 +4,12 @@
 
 Этот набор скриптов реализует ролевую модель доступа к кластеру Kubernetes для компании PropDevelopment на основе анализа заданий 1-3.
 
+## Требования
+- **Docker** - обязательно для работы Minikube
+- **Minikube** - локальный Kubernetes кластер
+- **kubectl** - утилита для работы с Kubernetes
+- **OpenSSL** - для создания сертификатов пользователей
+
 ## Структура файлов
 
 - `00_run_all.sh` - **Мастер-скрипт для полной настройки** (рекомендуется)
@@ -175,25 +181,28 @@ minikube start --driver=docker
 kubectl get nodes
 ```
 
-### Проблемы с драйверами
+### Проблемы с Docker
 ```bash
-# На macOS Apple Silicon (M1/M2) - автоматический fallback:
-# 1. Пробует qemu
-# 2. Если не работает - пробует docker
-# 3. Если не работает - пробует vmware
-# 4. Если не работает - пробует virtualbox
+# Убедитесь, что Docker запущен:
+docker --version
+docker ps
 
-# На macOS Intel:
-minikube start --driver=hyperkit
+# Если Docker не запущен, запустите Docker Desktop
+# На macOS: откройте Docker Desktop из Applications
+# На Linux: sudo systemctl start docker
 
-# На Linux с Docker:
-minikube start --driver=docker
+# Проверьте, что Docker работает:
+docker run hello-world
+```
 
-# Ручной запуск с конкретным драйвером:
-minikube start --driver=qemu        # QEMU (требует установки)
-minikube start --driver=docker      # Docker (требует установки)
-minikube start --driver=vmware      # VMware (требует установки)
-minikube start --driver=virtualbox  # VirtualBox (требует установки)
+### Проблемы с Minikube
+```bash
+# Если Minikube не запускается с Docker:
+minikube start --driver=docker --memory=4096 --cpus=2
+
+# Проверьте статус:
+minikube status
+kubectl get nodes
 ```
 
 ### Проблемы с сертификатами
