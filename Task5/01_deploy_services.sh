@@ -8,6 +8,10 @@ echo "=== Развертывание сервисов PropDevelopment ==="
 echo "Создание namespace..."
 kubectl create namespace task5
 
+# Создаем ServiceAccount для namespace
+echo "Создание ServiceAccount..."
+kubectl create serviceaccount default --namespace=task5
+
 # Развертываем 4 сервиса с метками
 echo "Развертывание front-end сервиса..."
 kubectl run front-end-app --image=nginx --labels role=front-end --expose --port 80 --namespace=task5
