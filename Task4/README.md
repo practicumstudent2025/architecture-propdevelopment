@@ -183,15 +183,22 @@ kubectl get nodes
 
 ### Проблемы с Docker
 ```bash
-# Убедитесь, что Docker запущен:
+# 1. Убедитесь, что Docker Desktop установлен:
+ls -la /Applications/ | grep -i docker
+
+# 2. Запустите Docker Desktop:
+open -a Docker
+
+# 3. Подождите 30-60 секунд, пока Docker Desktop полностью запустится
+# 4. Проверьте, что Docker работает:
 docker --version
 docker ps
 
-# Если Docker не запущен, запустите Docker Desktop
-# На macOS: откройте Docker Desktop из Applications
-# На Linux: sudo systemctl start docker
+# 5. Если Docker не найден в PATH, добавьте его:
+echo 'export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
 
-# Проверьте, что Docker работает:
+# 6. Проверьте, что Docker работает:
 docker run hello-world
 ```
 
