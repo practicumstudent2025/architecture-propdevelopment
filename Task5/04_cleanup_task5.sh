@@ -5,30 +5,20 @@
 echo "=== Очистка ресурсов Task 5 ==="
 
 echo "Удаление подов..."
-kubectl delete pod front-end-app --namespace=task5 2>/dev/null || true
-kubectl delete pod back-end-api-app --namespace=task5 2>/dev/null || true
-kubectl delete pod admin-front-end-app --namespace=task5 2>/dev/null || true
-kubectl delete pod admin-back-end-api-app --namespace=task5 2>/dev/null || true
+kubectl delete pods --all --namespace=task5 2>/dev/null || true
 
 echo "Удаление сервисов..."
-kubectl delete service front-end-app --namespace=task5 2>/dev/null || true
-kubectl delete service back-end-api-app --namespace=task5 2>/dev/null || true
-kubectl delete service admin-front-end-app --namespace=task5 2>/dev/null || true
-kubectl delete service admin-back-end-api-app --namespace=task5 2>/dev/null || true
+kubectl delete services --all --namespace=task5 2>/dev/null || true
 
 echo "Удаление сетевых политик..."
-kubectl delete networkpolicy default-deny-all --namespace=task5 2>/dev/null || true
-kubectl delete networkpolicy non-admin-api-allow --namespace=task5 2>/dev/null || true
-kubectl delete networkpolicy back-end-api-allow --namespace=task5 2>/dev/null || true
-kubectl delete networkpolicy admin-api-allow --namespace=task5 2>/dev/null || true
-kubectl delete networkpolicy admin-back-end-api-allow --namespace=task5 2>/dev/null || true
+kubectl delete networkpolicies --all --namespace=task5 2>/dev/null || true
 
 echo "Удаление namespace..."
 kubectl delete namespace task5 2>/dev/null || true
 
 echo "Удаление файлов конфигурации..."
 rm -f default-deny-all.yaml 2>/dev/null || true
-rm -f non-admin-api-allow.yaml 2>/dev/null || true
+rm -f network-policies.yaml 2>/dev/null || true
 
 echo "Очистка завершена!"
 echo ""

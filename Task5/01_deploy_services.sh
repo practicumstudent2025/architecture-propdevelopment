@@ -27,14 +27,10 @@ kubectl wait --for=condition=Ready pods --all --namespace=task5 --timeout=60s >/
 
 # Устанавливаем wget в поды для тестирования
 echo "Установка wget в поды..."
-kubectl exec front-end-app --namespace=task5 -- apt-get update >/dev/null 2>&1
-kubectl exec front-end-app --namespace=task5 -- apt-get install -y wget >/dev/null 2>&1
-kubectl exec back-end-api-app --namespace=task5 -- apt-get update >/dev/null 2>&1
-kubectl exec back-end-api-app --namespace=task5 -- apt-get install -y wget >/dev/null 2>&1
-kubectl exec admin-front-end-app --namespace=task5 -- apt-get update >/dev/null 2>&1
-kubectl exec admin-front-end-app --namespace=task5 -- apt-get install -y wget >/dev/null 2>&1
-kubectl exec admin-back-end-api-app --namespace=task5 -- apt-get update >/dev/null 2>&1
-kubectl exec admin-back-end-api-app --namespace=task5 -- apt-get install -y wget >/dev/null 2>&1
+for pod in front-end-app back-end-api-app admin-front-end-app admin-back-end-api-app; do
+    kubectl exec $pod --namespace=task5 -- apt-get update >/dev/null 2>&1
+    kubectl exec $pod --namespace=task5 -- apt-get install -y wget >/dev/null 2>&1
+done
 
 echo "Сервисы развернуты успешно!"
 echo ""

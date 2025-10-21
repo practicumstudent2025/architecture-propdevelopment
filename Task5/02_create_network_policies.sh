@@ -4,12 +4,13 @@
 
 echo "=== Создание сетевых политик ==="
 
-# Создаем сетевую политику для разрешения трафика между front-end и back-end-api
-cat > non-admin-api-allow.yaml << 'EOF'
+# Создаем упрощенные сетевые политики
+cat > network-policies.yaml << 'EOF'
+# Политика для front-end и back-end-api
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: non-admin-api-allow
+  name: frontend-backend-allow
   namespace: task5
 spec:
   podSelector:
@@ -27,12 +28,10 @@ spec:
     - protocol: TCP
       port: 80
   egress:
-  # Разрешаем DNS
   - to: []
     ports:
     - protocol: UDP
       port: 53
-  # Разрешаем подключение к back-end-api
   - to:
     - podSelector:
         matchLabels:
@@ -41,45 +40,11 @@ spec:
     - protocol: TCP
       port: 80
 ---
+# Политика для admin-front-end и admin-back-end-api
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: back-end-api-allow
-  namespace: task5
-spec:
-  podSelector:
-    matchLabels:
-      role: back-end-api
-  policyTypes:
-  - Ingress
-  - Egress
-  ingress:
-  - from:
-    - podSelector:
-        matchLabels:
-          role: front-end
-    ports:
-    - protocol: TCP
-      port: 80
-  egress:
-  # Разрешаем DNS
-  - to: []
-    ports:
-    - protocol: UDP
-      port: 53
-  # Разрешаем подключение к front-end
-  - to:
-    - podSelector:
-        matchLabels:
-          role: front-end
-    ports:
-    - protocol: TCP
-      port: 80
----
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: admin-api-allow
+  name: admin-frontend-backend-allow
   namespace: task5
 spec:
   podSelector:
@@ -97,51 +62,14 @@ spec:
     - protocol: TCP
       port: 80
   egress:
-  # Разрешаем DNS
   - to: []
     ports:
     - protocol: UDP
       port: 53
-  # Разрешаем подключение к admin-back-end-api
   - to:
     - podSelector:
         matchLabels:
           role: admin-back-end-api
-    ports:
-    - protocol: TCP
-      port: 80
----
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: admin-back-end-api-allow
-  namespace: task5
-spec:
-  podSelector:
-    matchLabels:
-      role: admin-back-end-api
-  policyTypes:
-  - Ingress
-  - Egress
-  ingress:
-  - from:
-    - podSelector:
-        matchLabels:
-          role: admin-front-end
-    ports:
-    - protocol: TCP
-      port: 80
-  egress:
-  # Разрешаем DNS
-  - to: []
-    ports:
-    - protocol: UDP
-      port: 53
-  # Разрешаем подключение к admin-front-end
-  - to:
-    - podSelector:
-        matchLabels:
-          role: admin-front-end
     ports:
     - protocol: TCP
       port: 80
@@ -167,7 +95,7 @@ kubectl delete networkpolicy --all --namespace=task5 >/dev/null 2>&1 || true
 # Сначала применяем политику "deny all"
 kubectl apply -f default-deny-all.yaml >/dev/null 2>&1
 # Затем применяем разрешающие политики
-kubectl apply -f non-admin-api-allow.yaml >/dev/null 2>&1
+kubectl apply -f network-policies.yaml >/dev/null 2>&1
 
 echo "Сетевые политики созданы и применены!"
 echo ""
