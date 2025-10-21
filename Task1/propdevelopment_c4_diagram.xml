@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" version="24.8.0">
+  <diagram name="PropDevelopment C4 Container Diagram" id="propdevelopment-c4">
+    <mxGraphModel dx="4471" dy="1297" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- System Boundary -->
+        <mxCell id="system-boundary" value="PropDevelopment" style="rounded=1;fontSize=11;whiteSpace=wrap;html=1;dashed=1;arcSize=20;fillColor=none;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="-420" y="340" width="2380" height="1860" as="geometry"/>
+        </mxCell>
+        
+        <!-- External Users -->
+        <mxCell id="client" value="Клиент" style="html=1;fontSize=11;dashed=0;whiteSpace=wrap;fillColor=#083F75;strokeColor=#06315C;fontColor=#ffffff;shape=mxgraph.c4.person2;" vertex="1" parent="1">
+          <mxGeometry x="350" y="40" width="200" height="180" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="owner" value="Собственник" style="html=1;fontSize=11;dashed=0;whiteSpace=wrap;fillColor=#083F75;strokeColor=#06315C;fontColor=#ffffff;shape=mxgraph.c4.person2;" vertex="1" parent="1">
+          <mxGeometry x="1410" y="30" width="200" height="180" as="geometry"/>
+        </mxCell>
+        
+        <!-- Internal Users -->
+        <mxCell id="manager" value="Менеджер" style="html=1;fontSize=11;dashed=0;whiteSpace=wrap;fillColor=#083F75;strokeColor=#06315C;fontColor=#ffffff;shape=mxgraph.c4.person2;" vertex="1" parent="1">
+          <mxGeometry x="-870" y="790" width="200" height="180" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="business-analyst" value="Бизнес-аналитик" style="html=1;fontSize=11;dashed=0;whiteSpace=wrap;fillColor=#083F75;strokeColor=#06315C;fontColor=#ffffff;shape=mxgraph.c4.person2;" vertex="1" parent="1">
+          <mxGeometry x="-870" y="1075" width="200" height="180" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="accountant" value="Бухгалтер" style="html=1;fontSize=11;dashed=0;whiteSpace=wrap;fillColor=#083F75;strokeColor=#06315C;fontColor=#ffffff;shape=mxgraph.c4.person2;" vertex="1" parent="1">
+          <mxGeometry x="-870" y="1590" width="200" height="180" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="bi-analyst" value="Аналитик BI" style="html=1;fontSize=11;dashed=0;whiteSpace=wrap;fillColor=#083F75;strokeColor=#06315C;fontColor=#ffffff;shape=mxgraph.c4.person2;" vertex="1" parent="1">
+          <mxGeometry x="2078" y="1401" width="200" height="180" as="geometry"/>
+        </mxCell>
+        
+        <!-- Client Services Group -->
+        <mxCell id="client-services-group" value="Группа сервисов для клиентов" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="-5" y="350" width="910" height="840" as="geometry"/>
+        </mxCell>
+        
+        <!-- Sales Showcase -->
+        <mxCell id="sales-showcase" value="Витрина продаж&#xa;[JavaScript, React]" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;" vertex="1" parent="1">
+          <mxGeometry x="330" y="370" width="240" height="120" as="geometry"/>
+        </mxCell>
+        
+        <!-- Client Mart App -->
+        <mxCell id="client-mart-app" value="client-mart-app&#xa;[Kotlin, SpringBoot]" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;" vertex="1" parent="1">
+          <mxGeometry x="330" y="550" width="240" height="120" as="geometry"/>
+        </mxCell>
+        
+        <!-- Client CRM App -->
+        <mxCell id="client-crm-app" value="client-crm-app&#xa;[SpringBoot, ElasticSearch, Dynamics CRM]" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;" vertex="1" parent="1">
+          <mxGeometry x="330" y="880" width="240" height="120" as="geometry"/>
+        </mxCell>
+        
+        <!-- Client Tour App -->
+        <mxCell id="client-tour-app" value="client-tour-app&#xa;[Kotlin, SpringBoot]" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;" vertex="1" parent="1">
+          <mxGeometry x="650" y="550" width="240" height="120" as="geometry"/>
+        </mxCell>
+        
+        <!-- Client Mart Estate App -->
+        <mxCell id="client-mart-estate-app" value="client-mart-estate-app&#xa;[Kotlin, SpringBoot]" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;" vertex="1" parent="1">
+          <mxGeometry x="10" y="550" width="240" height="120" as="geometry"/>
+        </mxCell>
+        
+        <!-- Auth Service -->
+        <mxCell id="auth-service" value="auth-service-1&#xa;[Keycloak]" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;" vertex="1" parent="1">
+          <mxGeometry x="910" y="510" width="240" height="120" as="geometry"/>
+        </mxCell>
+        
+        <!-- Databases -->
+        <mxCell id="client-mart-db" value="client-mart-db&#xa;[PostgreSQL]" style="shape=cylinder3;size=15;whiteSpace=wrap;html=1;boundedLbl=1;rounded=0;labelBackgroundColor=none;fillColor=#23A2D9;fontSize=12;fontColor=#ffffff;align=center;strokeColor=#0E7DAD;" vertex="1" parent="1">
+          <mxGeometry x="330" y="700" width="240" height="120" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="crm-db" value="crm-db&#xa;[MSSQL]" style="shape=cylinder3;size=15;whiteSpace=wrap;html=1;boundedLbl=1;rounded=0;labelBackgroundColor=none;fillColor=#23A2D9;fontSize=12;fontColor=#ffffff;align=center;strokeColor=#0E7DAD;" vertex="1" parent="1">
+          <mxGeometry x="330" y="1040" width="240" height="120" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="client-tour-db" value="client-tour-db&#xa;[PostgreSQL]" style="shape=cylinder3;size=15;whiteSpace=wrap;html=1;boundedLbl=1;rounded=0;labelBackgroundColor=none;fillColor=#23A2D9;fontSize=12;fontColor=#ffffff;align=center;strokeColor=#0E7DAD;" vertex="1" parent="1">
+          <mxGeometry x="650" y="700" width="240" height="120" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="client-mart-estate-db" value="client-mart-estate-db&#xa;[PostgreSQL]" style="shape=cylinder3;size=15;whiteSpace=wrap;html=1;boundedLbl=1;rounded=0;labelBackgroundColor=none;fillColor=#23A2D9;fontSize=12;fontColor=#ffffff;align=center;strokeColor=#0E7DAD;" vertex="1" parent="1">
+          <mxGeometry x="10" y="750" width="240" height="120" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="auth-db" value="auth-db-1&#xa;[PostgreSQL]" style="shape=cylinder3;size=15;whiteSpace=wrap;html=1;boundedLbl=1;rounded=0;labelBackgroundColor=none;fillColor=#23A2D9;fontSize=12;fontColor=#ffffff;align=center;strokeColor=#0E7DAD;" vertex="1" parent="1">
+          <mxGeometry x="910" y="680" width="240" height="120" as="geometry"/>
+        </mxCell>
+        
+        <!-- Housing Services Group -->
+        <mxCell id="housing-services-group" value="Группа сервисов ЖКУ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="370" width="780" height="860" as="geometry"/>
+        </mxCell>
+        
+        <!-- Owner Services Showcase -->
+        <mxCell id="owner-services-showcase" value="Витрина сервисов для собственников&#xa;[Mobile app iOS, Android]" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;" vertex="1" parent="1">
+          <mxGeometry x="1390" y="420" width="240" height="120" as="geometry"/>
+        </mxCell>
+        
+        <!-- Tenant Core App -->
+        <mxCell id="tenant-core-app" value="tenant-core-app&#xa;[Kotlin, SpringBoot]" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;" vertex="1" parent="1">
+          <mxGeometry x="1170" y="580" width="240" height="120" as="geometry"/>
+        </mxCell>
+        
+        <!-- CRM for Owners -->
+        <mxCell id="crm-owners" value="CRM&#xa;[Kotlin, SpringBoot]" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;" vertex="1" parent="1">
+          <mxGeometry x="1610" y="680" width="240" height="120" as="geometry"/>
+        </mxCell>
+        
+        <!-- Tenant Core DB -->
+        <mxCell id="tenant-core-db" value="tenant-core-db&#xa;[PostgreSQL]" style="shape=cylinder3;size=15;whiteSpace=wrap;html=1;boundedLbl=1;rounded=0;labelBackgroundColor=none;fillColor=#23A2D9;fontSize=12;fontColor=#ffffff;align=center;strokeColor=#0E7DAD;" vertex="1" parent="1">
+          <mxGeometry x="1170" y="740" width="240" height="120" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="crm-tenant-db" value="crm-tenant-db&#xa;[PostgreSQL]" style="shape=cylinder3;size=15;whiteSpace=wrap;html=1;boundedLbl=1;rounded=0;labelBackgroundColor=none;fillColor=#23A2D9;fontSize=12;fontColor=#ffffff;align=center;strokeColor=#0E7DAD;" vertex="1" parent="1">
+          <mxGeometry x="1609" y="860" width="240" height="120" as="geometry"/>
+        </mxCell>
+        
+        <!-- Data Group -->
+        <mxCell id="data-group" value="Группа данных" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="1310" width="420" height="520" as="geometry"/>
+        </mxCell>
+        
+        <!-- Data Warehouse -->
+        <mxCell id="data-warehouse" value="Хранилище данных&#xa;[Greenplum]" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;" vertex="1" parent="1">
+          <mxGeometry x="605" y="1380" width="240" height="120" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="dwh-storage" value="DWH Хранилище&#xa;[S3]" style="shape=cylinder3;size=15;whiteSpace=wrap;html=1;boundedLbl=1;rounded=0;labelBackgroundColor=none;fillColor=#23A2D9;fontSize=12;fontColor=#ffffff;align=center;strokeColor=#0E7DAD;" vertex="1" parent="1">
+          <mxGeometry x="605" y="1610" width="240" height="120" as="geometry"/>
+        </mxCell>
+        
+        <!-- Finance Group -->
+        <mxCell id="finance-group" value="Финансы" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="-420" y="1200" width="600" height="400" as="geometry"/>
+        </mxCell>
+        
+        <!-- Active Directory -->
+        <mxCell id="active-directory" value="Active Directory&#xa;[MS Active Directory]" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;" vertex="1" parent="1">
+          <mxGeometry x="-320" y="1239" width="240" height="120" as="geometry"/>
+        </mxCell>
+        
+        <!-- Accountant Service -->
+        <mxCell id="accountant-service" value="accountant-service-1&#xa;[Keycloak]" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;" vertex="1" parent="1">
+          <mxGeometry x="-300" y="1620" width="240" height="120" as="geometry"/>
+        </mxCell>
+        
+        <!-- External Systems -->
+        <mxCell id="state-registration" value="Государственные регистрационные органы&#xa;[Software System]" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#8C8496;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#736782;" vertex="1" parent="1">
+          <mxGeometry x="-880" y="610" width="240" height="120" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="housing-provider" value="Поставщик ресурсов ЖКХ&#xa;[Software System]" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#8C8496;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#736782;" vertex="1" parent="1">
+          <mxGeometry x="2060" y="475" width="240" height="120" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="payment-system" value="Платёжная система&#xa;[Software System]" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#8C8496;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#736782;" vertex="1" parent="1">
+          <mxGeometry x="2058" y="620" width="240" height="120" as="geometry"/>
+        </mxCell>
+        
+        <!-- Firewalls -->
+        <mxCell id="firewall1" value="Firewall" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="480" y="275" width="60" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="firewall2" value="Firewall" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="275" width="60" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- Connections -->
+        <mxCell id="client-to-showcase" value="[REST]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="client" target="sales-showcase">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="owner-to-services" value="[REST, WS]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="owner" target="owner-services-showcase">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="showcase-to-mart" value="[REST]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="sales-showcase" target="client-mart-app">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="showcase-to-crm" value="Регистрация клиента&#xa;Карточка клиента&#xa;Профиль клиента&#xa;[REST]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="sales-showcase" target="client-crm-app">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="showcase-to-tour" value="[REST]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="sales-showcase" target="client-tour-app">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="showcase-to-estate" value="Получить данные по объектам недвижимости&#xa;[REST]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="sales-showcase" target="client-mart-estate-app">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="showcase-to-auth" value="Регистрация&#xa;Аутентификация&#xa;[REST]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="sales-showcase" target="auth-service">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="services-to-tenant" value="[REST, WS]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="owner-services-showcase" target="tenant-core-app">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="services-to-crm" value="[REST]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="owner-services-showcase" target="crm-owners">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="tenant-to-payment" value="[REST]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="tenant-core-app" target="payment-system">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="tenant-to-housing" value="[REST]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="tenant-core-app" target="housing-provider">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="estate-to-state" value="СМЭВ&#xa;[SOAP]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="client-mart-estate-app" target="state-registration">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- Database Connections -->
+        <mxCell id="mart-to-db" value="[JDBC]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="client-mart-app" target="client-mart-db">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="crm-to-db" value="[JDBC]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="client-crm-app" target="crm-db">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="tour-to-db" value="[JDBC]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="client-tour-app" target="client-tour-db">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="estate-to-db" value="[JDBC]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="client-mart-estate-app" target="client-mart-estate-db">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="auth-to-db" value="[JDBC]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="auth-service" target="auth-db">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="tenant-to-db" value="[JDBC]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="tenant-core-app" target="tenant-core-db">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="crm-owners-to-db" value="[JDBC]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="crm-owners" target="crm-tenant-db">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- Data Flow to Warehouse -->
+        <mxCell id="mart-db-to-warehouse" value="Передача сырых данных&#xa;[CDC]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="client-mart-db" target="data-warehouse">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="crm-db-to-warehouse" value="Передача сырых данных&#xa;[CDC]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="crm-db" target="data-warehouse">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="tour-db-to-warehouse" value="Передача сырых данных&#xa;[CDC]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="client-tour-db" target="data-warehouse">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="estate-db-to-warehouse" value="Передача сырых данных&#xa;[CDC]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="client-mart-estate-db" target="data-warehouse">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="tenant-db-to-warehouse" value="Передача сырых данных&#xa;[CDC]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="tenant-core-db" target="data-warehouse">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="crm-tenant-db-to-warehouse" value="Передача сырых данных&#xa;[CDC]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="crm-tenant-db" target="data-warehouse">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="warehouse-to-storage" value="[JDBC]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="data-warehouse" target="dwh-storage">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- Authentication Connections -->
+        <mxCell id="manager-to-crm" value="Аутентификация менеджеров" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="manager" target="client-crm-app">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="analyst-to-warehouse" value="Аутентификация бизнес-аналитика" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="business-analyst" target="data-warehouse">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="accountant-to-service" value="Аутентификация" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="accountant" target="accountant-service">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="bi-analyst-to-warehouse" value="[REST]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="bi-analyst" target="data-warehouse">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- Kafka Connection -->
+        <mxCell id="crm-to-mart" value="Публикация каталога объектов&#xa;[Kafka]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="client-crm-app" target="client-mart-app">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="crm-to-tour" value="[Kafka]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="client-crm-app" target="client-tour-app">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="tenant-to-crm" value="Получение клиентских данных&#xa;[REST]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="tenant-core-app" target="crm-owners">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="services-to-auth" value="[REST]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="owner-services-showcase" target="auth-service">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="accountant-to-ad" value="Аутентификация" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="accountant-service" target="active-directory">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="warehouse-to-ad" value="Аутентификация бизнес-аналитика" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="data-warehouse" target="active-directory">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
