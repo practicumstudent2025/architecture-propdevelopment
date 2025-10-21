@@ -14,8 +14,19 @@ if ! minikube status | grep -q "Running"; then
     if [[ "$OSTYPE" == "darwin"* ]]; then
         # macOS - проверяем архитектуру
         if [[ $(uname -m) == "arm64" ]]; then
-            # Apple Silicon - используем qemu
-            minikube start --driver=qemu --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0
+            # Apple Silicon - пробуем разные драйверы
+            echo "Попытка запуска с драйвером qemu..."
+            if minikube start --driver=qemu --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0 2>/dev/null; then
+                echo "Успешно запущен с qemu"
+            else
+                echo "qemu не работает, пробуем docker..."
+                if minikube start --driver=docker --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0 2>/dev/null; then
+                    echo "Успешно запущен с docker"
+                else
+                    echo "docker не работает, пробуем virtualbox..."
+                    minikube start --driver=virtualbox --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0
+                fi
+            fi
         else
             # Intel Mac - используем hyperkit
             minikube start --driver=hyperkit --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0

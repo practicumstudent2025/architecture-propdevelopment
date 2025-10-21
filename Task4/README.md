@@ -177,8 +177,10 @@ kubectl get nodes
 
 ### Проблемы с драйверами
 ```bash
-# На macOS Apple Silicon (M1/M2):
-minikube start --driver=qemu
+# На macOS Apple Silicon (M1/M2) - автоматический fallback:
+# 1. Пробует qemu
+# 2. Если не работает - пробует docker
+# 3. Если не работает - пробует virtualbox
 
 # На macOS Intel:
 minikube start --driver=hyperkit
@@ -186,9 +188,10 @@ minikube start --driver=hyperkit
 # На Linux с Docker:
 minikube start --driver=docker
 
-# Альтернативные драйверы:
-minikube start --driver=virtualbox  # VirtualBox
-minikube start --driver=vmware      # VMware
+# Ручной запуск с конкретным драйвером:
+minikube start --driver=qemu        # QEMU (требует установки)
+minikube start --driver=docker      # Docker (требует установки)
+minikube start --driver=virtualbox  # VirtualBox (требует установки)
 ```
 
 ### Проблемы с сертификатами
