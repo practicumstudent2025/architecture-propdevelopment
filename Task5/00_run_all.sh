@@ -31,8 +31,9 @@ fi
 # Проверяем подключение к кластеру
 if ! kubectl get nodes &> /dev/null; then
     echo "Ошибка: Нет подключения к кластеру Kubernetes"
-    echo "Убедитесь, что кластер запущен (например, minikube start)"
-    exit 1
+    echo "Настраиваем Minikube с поддержкой сетевых политик..."
+    ./00_setup_minikube.sh
+    check_success "Настройка Minikube"
 fi
 
 echo "Все требования выполнены"
