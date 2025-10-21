@@ -23,13 +23,13 @@ check_success() {
 echo "Проверка предварительных требований..."
 
 # Проверяем kubectl
-if ! command -v kubectl &> /dev/null; then
+if ! command -v kubectl; then
     echo "Ошибка: kubectl не установлен"
     exit 1
 fi
 
 # Проверяем подключение к кластеру
-if ! kubectl get nodes &> /dev/null; then
+if ! kubectl get nodes; then
     echo "Ошибка: Нет подключения к кластеру Kubernetes"
     echo "Настраиваем Minikube с поддержкой сетевых политик..."
     ./00_setup_minikube.sh
@@ -37,7 +37,7 @@ if ! kubectl get nodes &> /dev/null; then
 else
     # Проверяем, поддерживает ли кластер сетевые политики
     echo "Проверка поддержки сетевых политик..."
-    if ! kubectl get pods -n kube-system | grep -E "(calico|flannel|cilium)" &> /dev/null; then
+    if ! kubectl get pods -n kube-system | grep -E "(calico|flannel|cilium)"; then
         echo "Кластер не поддерживает сетевые политики!"
         echo "Настраиваем Minikube с поддержкой сетевых политик..."
         ./00_setup_minikube.sh
@@ -70,9 +70,9 @@ echo "=== TASK 5 ЗАВЕРШЕН ==="
 echo ""
 echo "Результаты:"
 echo "- Namespace: $(kubectl get namespaces | grep task5 | wc -l)"
-echo "- Поды: $(kubectl get pods --namespace=task5 2>/dev/null | grep -v NAME | wc -l)"
-echo "- Сервисы: $(kubectl get services --namespace=task5 2>/dev/null | grep -v NAME | wc -l)"
-echo "- NetworkPolicy: $(kubectl get networkpolicies --namespace=task5 2>/dev/null | grep -v NAME | wc -l)"
+echo "- Поды: $(kubectl get pods --namespace=task5 | grep -v NAME | wc -l)"
+echo "- Сервисы: $(kubectl get services --namespace=task5 | grep -v NAME | wc -l)"
+echo "- NetworkPolicy: $(kubectl get networkpolicies --namespace=task5 | grep -v NAME | wc -l)"
 echo ""
 echo "Система готова к использованию!"
 echo "Для очистки: ./04_cleanup_task5.sh"
