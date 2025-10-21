@@ -11,16 +11,16 @@ minikube delete || true
 
 # Запускаем новый кластер с поддержкой сетевых политик
 echo "Запуск Minikube с поддержкой сетевых политик..."
-minikube start --driver=docker --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0 --cni=calico
+minikube start --driver=docker --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0 --cni=flannel
 
 # Проверяем успешность запуска
 if [ $? -ne 0 ]; then
-    echo "Ошибка: Не удалось запустить Minikube с Calico"
-    echo "Попробуем с flannel..."
-    minikube start --driver=docker --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0 --cni=flannel
+    echo "Ошибка: Не удалось запустить Minikube с flannel"
+    echo "Попробуем без CNI плагина..."
+    minikube start --driver=docker --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0
     
     if [ $? -ne 0 ]; then
-        echo "Ошибка: Не удалось запустить Minikube с flannel"
+        echo "Ошибка: Не удалось запустить Minikube"
         exit 1
     fi
 fi
