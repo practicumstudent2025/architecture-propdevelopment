@@ -27,6 +27,12 @@ spec:
     - protocol: TCP
       port: 80
   egress:
+  # Разрешаем DNS
+  - to: []
+    ports:
+    - protocol: UDP
+      port: 53
+  # Разрешаем подключение к back-end-api
   - to:
     - podSelector:
         matchLabels:
@@ -56,6 +62,12 @@ spec:
     - protocol: TCP
       port: 80
   egress:
+  # Разрешаем DNS
+  - to: []
+    ports:
+    - protocol: UDP
+      port: 53
+  # Разрешаем подключение к front-end
   - to:
     - podSelector:
         matchLabels:
@@ -85,6 +97,12 @@ spec:
     - protocol: TCP
       port: 80
   egress:
+  # Разрешаем DNS
+  - to: []
+    ports:
+    - protocol: UDP
+      port: 53
+  # Разрешаем подключение к admin-back-end-api
   - to:
     - podSelector:
         matchLabels:
@@ -114,6 +132,12 @@ spec:
     - protocol: TCP
       port: 80
   egress:
+  # Разрешаем DNS
+  - to: []
+    ports:
+    - protocol: UDP
+      port: 53
+  # Разрешаем подключение к admin-front-end
   - to:
     - podSelector:
         matchLabels:
