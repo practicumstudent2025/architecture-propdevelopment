@@ -165,8 +165,27 @@ kubectl get pods --all-namespaces
 ./05_fix_cluster.sh
 
 # Или вручную:
-minikube start
+# На macOS (если нет Docker):
+minikube start --driver=hyperkit
+
+# На Linux:
+minikube start --driver=docker
+
+# Проверка:
 kubectl get nodes
+```
+
+### Проблемы с драйверами
+```bash
+# На macOS без Docker используйте hyperkit:
+minikube start --driver=hyperkit
+
+# На Linux с Docker:
+minikube start --driver=docker
+
+# Альтернативные драйверы:
+minikube start --driver=virtualbox  # VirtualBox
+minikube start --driver=vmware      # VMware
 ```
 
 ### Проблемы с сертификатами

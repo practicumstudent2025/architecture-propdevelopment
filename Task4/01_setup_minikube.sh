@@ -14,8 +14,14 @@ fi
 minikube stop 2>/dev/null || true
 minikube delete 2>/dev/null || true
 
-# Запускаем новый кластер
-minikube start --driver=docker --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0
+# Запускаем новый кластер (используем hyperkit на macOS, docker на Linux)
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    # macOS - используем hyperkit
+    minikube start --driver=hyperkit --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0
+else
+    # Linux - используем docker
+    minikube start --driver=docker --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0
+fi
 
 # Ждем готовности кластера
 echo "Ожидание готовности кластера..."

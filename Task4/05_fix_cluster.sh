@@ -11,7 +11,13 @@ minikube status
 # Если кластер не запущен, запускаем
 if ! minikube status | grep -q "Running"; then
     echo "Запуск Minikube..."
-    minikube start --driver=docker --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        # macOS - используем hyperkit
+        minikube start --driver=hyperkit --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0
+    else
+        # Linux - используем docker
+        minikube start --driver=docker --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0
+    fi
 fi
 
 # Ждем готовности
