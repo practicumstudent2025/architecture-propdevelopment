@@ -27,8 +27,13 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
             if minikube start --driver=docker --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0 2>/dev/null; then
                 echo "Успешно запущен с docker"
             else
-                echo "docker не работает, пробуем virtualbox..."
-                minikube start --driver=virtualbox --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0
+                echo "docker не работает, пробуем vmware..."
+                if minikube start --driver=vmware --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0 2>/dev/null; then
+                    echo "Успешно запущен с vmware"
+                else
+                    echo "vmware не работает, пробуем virtualbox..."
+                    minikube start --driver=virtualbox --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0
+                fi
             fi
         fi
     else
