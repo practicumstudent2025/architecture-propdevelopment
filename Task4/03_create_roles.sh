@@ -5,7 +5,7 @@
 echo "Создание ролей..."
 
 # ClusterRole для cluster-admin (полный доступ)
-kubectl apply -f - <<EOF
+kubectl apply -f - <<EOF >/dev/null 2>&1
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -19,7 +19,7 @@ rules:
 EOF
 
 # ClusterRole для namespace-admin
-kubectl apply -f - <<EOF
+kubectl apply -f - <<EOF >/dev/null 2>&1
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -46,7 +46,7 @@ rules:
 EOF
 
 # ClusterRole для developer
-kubectl apply -f - <<EOF
+kubectl apply -f - <<EOF >/dev/null 2>&1
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -70,7 +70,7 @@ rules:
 EOF
 
 # ClusterRole для data-analyst
-kubectl apply -f - <<EOF
+kubectl apply -f - <<EOF >/dev/null 2>&1
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -91,7 +91,7 @@ rules:
 EOF
 
 # ClusterRole для monitor-viewer
-kubectl apply -f - <<EOF
+kubectl apply -f - <<EOF >/dev/null 2>&1
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -115,7 +115,7 @@ rules:
 EOF
 
 # ClusterRole для security-auditor
-kubectl apply -f - <<EOF
+kubectl apply -f - <<EOF >/dev/null 2>&1
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -139,7 +139,7 @@ rules:
 EOF
 
 # ClusterRole для smart-home-operator
-kubectl apply -f - <<EOF
+kubectl apply -f - <<EOF >/dev/null 2>&1
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -160,7 +160,7 @@ rules:
 EOF
 
 # ClusterRole для accountant
-kubectl apply -f - <<EOF
+kubectl apply -f - <<EOF >/dev/null 2>&1
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -181,7 +181,7 @@ rules:
 EOF
 
 # ClusterRole для manager
-kubectl apply -f - <<EOF
+kubectl apply -f - <<EOF >/dev/null 2>&1
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -205,7 +205,7 @@ rules:
 EOF
 
 # ClusterRole для client-support
-kubectl apply -f - <<EOF
+kubectl apply -f - <<EOF >/dev/null 2>&1
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -229,7 +229,7 @@ rules:
 EOF
 
 # ClusterRole для owner-support
-kubectl apply -f - <<EOF
+kubectl apply -f - <<EOF >/dev/null 2>&1
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -253,7 +253,7 @@ rules:
 EOF
 
 # ClusterRole для external-partner
-kubectl apply -f - <<EOF
+kubectl apply -f - <<EOF >/dev/null 2>&1
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -277,7 +277,7 @@ rules:
 EOF
 
 # Дополнительные роли
-kubectl apply -f - <<EOF
+kubectl apply -f - <<EOF >/dev/null 2>&1
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -294,7 +294,7 @@ rules:
   verbs: ["get", "list", "watch"]
 EOF
 
-kubectl apply -f - <<EOF
+kubectl apply -f - <<EOF >/dev/null 2>&1
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -308,7 +308,7 @@ rules:
   verbs: ["*"]
 EOF
 
-kubectl apply -f - <<EOF
+kubectl apply -f - <<EOF >/dev/null 2>&1
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
