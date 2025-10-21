@@ -48,6 +48,10 @@ echo "Этап 1: Настройка Minikube"
 ./01_setup_minikube.sh
 check_success "Настройка Minikube"
 
+# Проверяем, что кластер готов
+echo "Проверка готовности кластера..."
+kubectl get nodes
+
 # Этап 2: Создание пользователей
 echo "Этап 2: Создание пользователей"
 ./02_create_users.sh

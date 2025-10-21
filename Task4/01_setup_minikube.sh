@@ -17,10 +17,11 @@ minikube delete 2>/dev/null || true
 # Запускаем новый кластер
 minikube start --driver=docker --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0
 
-# Включаем аддоны
-minikube addons enable dashboard
-minikube addons enable metrics-server
-minikube addons enable ingress
+# Ждем готовности кластера
+echo "Ожидание готовности кластера..."
+kubectl wait --for=condition=Ready nodes --all --timeout=300s
+
+# Включаем только необходимые аддоны
 minikube addons enable storage-provisioner
 minikube addons enable default-storageclass
 

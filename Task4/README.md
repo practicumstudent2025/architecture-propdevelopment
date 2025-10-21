@@ -159,6 +159,16 @@ kubectl get pods --all-namespaces
 
 ## Troubleshooting
 
+### Проблемы с подключением к кластеру
+```bash
+# Если kubectl не может подключиться к кластеру
+./05_fix_cluster.sh
+
+# Или вручную:
+minikube start
+kubectl get nodes
+```
+
 ### Проблемы с сертификатами
 ```bash
 # Пересоздайте сертификаты
@@ -181,6 +191,16 @@ kubectl delete rolebindings --all-namespaces
 # Пересоздайте namespace
 kubectl delete namespace sales tenant-services finance data smart-home monitoring security
 ./01_setup_minikube.sh
+```
+
+### Полный сброс
+```bash
+# Остановите и удалите кластер
+minikube stop
+minikube delete
+
+# Запустите мастер-скрипт заново
+./00_run_all.sh
 ```
 
 ## Мастер-скрипт (00_run_all.sh)
