@@ -177,7 +177,10 @@ kubectl get nodes
 
 ### Проблемы с драйверами
 ```bash
-# На macOS без Docker используйте hyperkit:
+# На macOS Apple Silicon (M1/M2):
+minikube start --driver=qemu
+
+# На macOS Intel:
 minikube start --driver=hyperkit
 
 # На Linux с Docker:

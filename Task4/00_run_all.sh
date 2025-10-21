@@ -46,6 +46,14 @@ echo ""
 # Этап 1: Настройка Minikube
 echo "Этап 1: Настройка Minikube"
 ./01_setup_minikube.sh
+if [ $? -ne 0 ]; then
+    echo "Попытка исправления проблем с кластером..."
+    ./05_fix_cluster.sh
+    if [ $? -ne 0 ]; then
+        echo "ОШИБКА: Не удалось настроить Minikube"
+        exit 1
+    fi
+fi
 check_success "Настройка Minikube"
 
 # Проверяем, что кластер готов

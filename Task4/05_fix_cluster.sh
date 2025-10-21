@@ -12,17 +12,35 @@ minikube status
 if ! minikube status | grep -q "Running"; then
     echo "Запуск Minikube..."
     if [[ "$OSTYPE" == "darwin"* ]]; then
-        # macOS - используем hyperkit
-        minikube start --driver=hyperkit --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0
+        # macOS - проверяем архитектуру
+        if [[ $(uname -m) == "arm64" ]]; then
+            # Apple Silicon - используем qemu
+            minikube start --driver=qemu --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0
+        else
+            # Intel Mac - используем hyperkit
+            minikube start --driver=hyperkit --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0
+        fi
     else
         # Linux - используем docker
         minikube start --driver=docker --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0
+    fi
+    
+    # Проверяем успешность запуска
+    if [ $? -ne 0 ]; then
+        echo "Ошибка: Не удалось запустить Minikube"
+        exit 1
     fi
 fi
 
 # Ждем готовности
 echo "Ожидание готовности кластера..."
 kubectl wait --for=condition=Ready nodes --all --timeout=300s
+
+# Проверяем успешность ожидания
+if [ $? -ne 0 ]; then
+    echo "Ошибка: Кластер не готов к работе"
+    exit 1
+fi
 
 # Проверяем подключение
 echo "Проверка подключения к кластеру..."

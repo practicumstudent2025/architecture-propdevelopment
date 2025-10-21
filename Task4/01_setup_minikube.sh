@@ -14,18 +14,36 @@ fi
 minikube stop 2>/dev/null || true
 minikube delete 2>/dev/null || true
 
-# Запускаем новый кластер (используем hyperkit на macOS, docker на Linux)
+# Запускаем новый кластер (определяем архитектуру и ОС)
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    # macOS - используем hyperkit
-    minikube start --driver=hyperkit --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0
+    # macOS - проверяем архитектуру
+    if [[ $(uname -m) == "arm64" ]]; then
+        # Apple Silicon - используем qemu
+        minikube start --driver=qemu --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0
+    else
+        # Intel Mac - используем hyperkit
+        minikube start --driver=hyperkit --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0
+    fi
 else
     # Linux - используем docker
     minikube start --driver=docker --memory=4096 --cpus=2 --disk-size=20g --kubernetes-version=v1.28.0
 fi
 
+# Проверяем успешность запуска
+if [ $? -ne 0 ]; then
+    echo "Ошибка: Не удалось запустить Minikube"
+    exit 1
+fi
+
 # Ждем готовности кластера
 echo "Ожидание готовности кластера..."
 kubectl wait --for=condition=Ready nodes --all --timeout=300s
+
+# Проверяем успешность ожидания
+if [ $? -ne 0 ]; then
+    echo "Ошибка: Кластер не готов к работе"
+    exit 1
+fi
 
 # Включаем только необходимые аддоны
 minikube addons enable storage-provisioner
