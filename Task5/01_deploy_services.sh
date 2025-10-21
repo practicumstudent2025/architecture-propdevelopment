@@ -12,18 +12,22 @@ kubectl create namespace task5
 echo "Создание ServiceAccount..."
 kubectl create serviceaccount default --namespace=task5
 
-# Развертываем 4 сервиса с метками
+# Развертываем 4 сервиса с метками через Deployment
 echo "Развертывание front-end сервиса..."
-kubectl run front-end-app --image=nginx --labels role=front-end --expose --port 80 --namespace=task5
+kubectl create deployment front-end-app --image=nginx --labels role=front-end --namespace=task5
+kubectl expose deployment front-end-app --port 80 --namespace=task5
 
 echo "Развертывание back-end-api сервиса..."
-kubectl run back-end-api-app --image=nginx --labels role=back-end-api --expose --port 80 --namespace=task5
+kubectl create deployment back-end-api-app --image=nginx --labels role=back-end-api --namespace=task5
+kubectl expose deployment back-end-api-app --port 80 --namespace=task5
 
 echo "Развертывание admin-front-end сервиса..."
-kubectl run admin-front-end-app --image=nginx --labels role=admin-front-end --expose --port 80 --namespace=task5
+kubectl create deployment admin-front-end-app --image=nginx --labels role=admin-front-end --namespace=task5
+kubectl expose deployment admin-front-end-app --port 80 --namespace=task5
 
 echo "Развертывание admin-back-end-api сервиса..."
-kubectl run admin-back-end-api-app --image=nginx --labels role=admin-back-end-api --expose --port 80 --namespace=task5
+kubectl create deployment admin-back-end-api-app --image=nginx --labels role=admin-back-end-api --namespace=task5
+kubectl expose deployment admin-back-end-api-app --port 80 --namespace=task5
 
 # Ждем готовности подов
 echo "Ожидание готовности подов..."
