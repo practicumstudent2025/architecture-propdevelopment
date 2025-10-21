@@ -25,11 +25,11 @@ kubectl run admin-back-end-api-app --image=nginx --labels role=admin-back-end-ap
 echo "Ожидание готовности подов..."
 kubectl wait --for=condition=Ready pods --all --namespace=task5 --timeout=60s
 
-# Устанавливаем wget в поды для тестирования
-echo "Установка wget в поды..."
+# Проверяем наличие wget в подах
+echo "Проверка wget в подах..."
 for pod in front-end-app back-end-api-app admin-front-end-app admin-back-end-api-app; do
-    kubectl exec $pod --namespace=task5 -- apt-get update
-    kubectl exec $pod --namespace=task5 -- apt-get install -y wget
+    echo "Проверка wget в $pod..."
+    kubectl exec $pod --namespace=task5 -- which wget || echo "wget не найден в $pod"
 done
 
 echo "Сервисы развернуты успешно!"
