@@ -1,12 +1,10 @@
 #!/bin/bash
 
-# Скрипт для создания ролей Kubernetes для PropDevelopment
-# Основан на ролевой модели из заданий 1-3
+# Создание ролей Kubernetes для PropDevelopment
 
-echo "=== Создание ролей Kubernetes для PropDevelopment ==="
+echo "Создание ролей..."
 
-# 1. Создаем ClusterRole для cluster-admin (полный доступ)
-echo "🔐 Создаем ClusterRole: cluster-admin"
+# ClusterRole для cluster-admin (полный доступ)
 kubectl apply -f - <<EOF
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -20,8 +18,7 @@ rules:
   verbs: ["*"]
 EOF
 
-# 2. Создаем ClusterRole для namespace-admin (управление namespace)
-echo "🔐 Создаем ClusterRole: namespace-admin"
+# ClusterRole для namespace-admin
 kubectl apply -f - <<EOF
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -48,8 +45,7 @@ rules:
   verbs: ["*"]
 EOF
 
-# 3. Создаем ClusterRole для developer (разработка приложений)
-echo "🔐 Создаем ClusterRole: developer"
+# ClusterRole для developer
 kubectl apply -f - <<EOF
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -73,8 +69,7 @@ rules:
   verbs: ["get", "list"]
 EOF
 
-# 4. Создаем ClusterRole для data-analyst (анализ данных)
-echo "🔐 Создаем ClusterRole: data-analyst"
+# ClusterRole для data-analyst
 kubectl apply -f - <<EOF
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -95,8 +90,7 @@ rules:
   verbs: ["get", "list"]
 EOF
 
-# 5. Создаем ClusterRole для monitor-viewer (мониторинг)
-echo "🔐 Создаем ClusterRole: monitor-viewer"
+# ClusterRole для monitor-viewer
 kubectl apply -f - <<EOF
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -120,8 +114,7 @@ rules:
   verbs: ["get", "list"]
 EOF
 
-# 6. Создаем ClusterRole для security-auditor (аудит безопасности)
-echo "🔐 Создаем ClusterRole: security-auditor"
+# ClusterRole для security-auditor
 kubectl apply -f - <<EOF
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -145,8 +138,7 @@ rules:
   verbs: ["get", "list"]
 EOF
 
-# 7. Создаем ClusterRole для smart-home-operator (Smart Home)
-echo "🔐 Создаем ClusterRole: smart-home-operator"
+# ClusterRole для smart-home-operator
 kubectl apply -f - <<EOF
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -167,8 +159,7 @@ rules:
   verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
 EOF
 
-# 8. Создаем ClusterRole для accountant (бухгалтер)
-echo "🔐 Создаем ClusterRole: accountant"
+# ClusterRole для accountant
 kubectl apply -f - <<EOF
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -189,8 +180,7 @@ rules:
   verbs: ["get", "list", "watch"]
 EOF
 
-# 9. Создаем ClusterRole для manager (менеджер)
-echo "🔐 Создаем ClusterRole: manager"
+# ClusterRole для manager
 kubectl apply -f - <<EOF
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -214,8 +204,7 @@ rules:
   verbs: ["get", "list"]
 EOF
 
-# 10. Создаем ClusterRole для client-support (поддержка клиентов)
-echo "🔐 Создаем ClusterRole: client-support"
+# ClusterRole для client-support
 kubectl apply -f - <<EOF
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -239,8 +228,7 @@ rules:
   verbs: ["get", "list", "watch"]
 EOF
 
-# 11. Создаем ClusterRole для owner-support (поддержка собственников)
-echo "🔐 Создаем ClusterRole: owner-support"
+# ClusterRole для owner-support
 kubectl apply -f - <<EOF
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -264,8 +252,7 @@ rules:
   verbs: ["get", "list", "watch"]
 EOF
 
-# 12. Создаем ClusterRole для external-partner (внешний партнёр)
-echo "🔐 Создаем ClusterRole: external-partner"
+# ClusterRole для external-partner
 kubectl apply -f - <<EOF
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -289,10 +276,7 @@ rules:
   verbs: ["get", "list", "watch"]
 EOF
 
-# 13. Создаем дополнительные роли для специфических задач
-
-# Backup operator
-echo "🔐 Создаем ClusterRole: backup-operator"
+# Дополнительные роли
 kubectl apply -f - <<EOF
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -310,8 +294,6 @@ rules:
   verbs: ["get", "list", "watch"]
 EOF
 
-# Network admin
-echo "🔐 Создаем ClusterRole: network-admin"
 kubectl apply -f - <<EOF
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -322,15 +304,10 @@ rules:
   resources: ["ingresses", "networkpolicies"]
   verbs: ["*"]
 - apiGroups: [""]
-  resources: ["services"]
-  verbs: ["*"]
-- apiGroups: [""]
-  resources: ["endpoints"]
+  resources: ["services", "endpoints"]
   verbs: ["*"]
 EOF
 
-# Secret manager
-echo "🔐 Создаем ClusterRole: secret-manager"
 kubectl apply -f - <<EOF
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -348,10 +325,4 @@ rules:
   verbs: ["get", "list", "watch"]
 EOF
 
-echo "📊 Проверяем созданные роли..."
-kubectl get clusterroles | grep -E "(cluster-admin|namespace-admin|developer|data-analyst|monitor-viewer|security-auditor|smart-home-operator|accountant|manager|client-support|owner-support|external-partner|backup-operator|network-admin|secret-manager)"
-
-echo "✅ Роли Kubernetes для PropDevelopment созданы!"
-echo "🔐 Создано 16 ролей, соответствующих организационной структуре PropDevelopment"
-echo "📋 Роли покрывают все домены: sales, tenant-services, finance, data, smart-home"
-echo "🛡️ Реализованы принципы безопасности: минимальные привилегии, разделение обязанностей"
+echo "Роли созданы"
