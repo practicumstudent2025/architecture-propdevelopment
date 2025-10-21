@@ -34,6 +34,17 @@ if ! kubectl get nodes &> /dev/null; then
     echo "Настраиваем Minikube с поддержкой сетевых политик..."
     ./00_setup_minikube.sh
     check_success "Настройка Minikube"
+else
+    # Проверяем, поддерживает ли кластер сетевые политики
+    echo "Проверка поддержки сетевых политик..."
+    if ! kubectl get pods -n kube-system | grep -E "(calico|flannel|cilium)" &> /dev/null; then
+        echo "Кластер не поддерживает сетевые политики!"
+        echo "Настраиваем Minikube с поддержкой сетевых политик..."
+        ./00_setup_minikube.sh
+        check_success "Настройка Minikube"
+    else
+        echo "Кластер поддерживает сетевые политики ✅"
+    fi
 fi
 
 echo "Все требования выполнены"
