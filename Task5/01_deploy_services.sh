@@ -12,22 +12,173 @@ kubectl create namespace task5
 echo "Создание ServiceAccount..."
 kubectl create serviceaccount default --namespace=task5
 
-# Развертываем 4 сервиса с метками через Deployment
+# Создаем YAML файлы для Deployment
+echo "Создание YAML файлов для Deployment..."
+
+# Front-end deployment
+cat > front-end-deployment.yaml << 'EOF'
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-end-app
+  namespace: task5
+  labels:
+    role: front-end
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      role: front-end
+  template:
+    metadata:
+      labels:
+        role: front-end
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: front-end-app
+  namespace: task5
+spec:
+  selector:
+    role: front-end
+  ports:
+  - port: 80
+    targetPort: 80
+EOF
+
+# Back-end-api deployment
+cat > back-end-api-deployment.yaml << 'EOF'
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: back-end-api-app
+  namespace: task5
+  labels:
+    role: back-end-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      role: back-end-api
+  template:
+    metadata:
+      labels:
+        role: back-end-api
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: back-end-api-app
+  namespace: task5
+spec:
+  selector:
+    role: back-end-api
+  ports:
+  - port: 80
+    targetPort: 80
+EOF
+
+# Admin-front-end deployment
+cat > admin-front-end-deployment.yaml << 'EOF'
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: admin-front-end-app
+  namespace: task5
+  labels:
+    role: admin-front-end
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      role: admin-front-end
+  template:
+    metadata:
+      labels:
+        role: admin-front-end
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: admin-front-end-app
+  namespace: task5
+spec:
+  selector:
+    role: admin-front-end
+  ports:
+  - port: 80
+    targetPort: 80
+EOF
+
+# Admin-back-end-api deployment
+cat > admin-back-end-api-deployment.yaml << 'EOF'
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: admin-back-end-api-app
+  namespace: task5
+  labels:
+    role: admin-back-end-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      role: admin-back-end-api
+  template:
+    metadata:
+      labels:
+        role: admin-back-end-api
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: admin-back-end-api-app
+  namespace: task5
+spec:
+  selector:
+    role: admin-back-end-api
+  ports:
+  - port: 80
+    targetPort: 80
+EOF
+
+# Применяем все deployment
 echo "Развертывание front-end сервиса..."
-kubectl create deployment front-end-app --image=nginx --labels role=front-end --namespace=task5
-kubectl expose deployment front-end-app --port 80 --namespace=task5
+kubectl apply -f front-end-deployment.yaml
 
 echo "Развертывание back-end-api сервиса..."
-kubectl create deployment back-end-api-app --image=nginx --labels role=back-end-api --namespace=task5
-kubectl expose deployment back-end-api-app --port 80 --namespace=task5
+kubectl apply -f back-end-api-deployment.yaml
 
 echo "Развертывание admin-front-end сервиса..."
-kubectl create deployment admin-front-end-app --image=nginx --labels role=admin-front-end --namespace=task5
-kubectl expose deployment admin-front-end-app --port 80 --namespace=task5
+kubectl apply -f admin-front-end-deployment.yaml
 
 echo "Развертывание admin-back-end-api сервиса..."
-kubectl create deployment admin-back-end-api-app --image=nginx --labels role=admin-back-end-api --namespace=task5
-kubectl expose deployment admin-back-end-api-app --port 80 --namespace=task5
+kubectl apply -f admin-back-end-api-deployment.yaml
 
 # Ждем готовности подов
 echo "Ожидание готовности подов..."
