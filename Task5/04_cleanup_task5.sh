@@ -17,6 +17,7 @@ kubectl delete service admin-front-end-app --namespace=task5 2>/dev/null || true
 kubectl delete service admin-back-end-api-app --namespace=task5 2>/dev/null || true
 
 echo "Удаление сетевых политик..."
+kubectl delete networkpolicy default-deny-all --namespace=task5 2>/dev/null || true
 kubectl delete networkpolicy non-admin-api-allow --namespace=task5 2>/dev/null || true
 kubectl delete networkpolicy back-end-api-allow --namespace=task5 2>/dev/null || true
 kubectl delete networkpolicy admin-api-allow --namespace=task5 2>/dev/null || true
@@ -26,6 +27,7 @@ echo "Удаление namespace..."
 kubectl delete namespace task5 2>/dev/null || true
 
 echo "Удаление файлов конфигурации..."
+rm -f default-deny-all.yaml 2>/dev/null || true
 rm -f non-admin-api-allow.yaml 2>/dev/null || true
 
 echo "Очистка завершена!"

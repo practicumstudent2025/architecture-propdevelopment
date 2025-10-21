@@ -147,7 +147,22 @@ spec:
       port: 80
 EOF
 
+# Создаем политику "deny all" по умолчанию
+cat > default-deny-all.yaml << 'EOF'
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-all
+  namespace: task5
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+  - Egress
+EOF
+
 echo "Применение сетевых политик..."
+kubectl apply -f default-deny-all.yaml >/dev/null 2>&1
 kubectl apply -f non-admin-api-allow.yaml >/dev/null 2>&1
 
 echo "Сетевые политики созданы и применены!"
