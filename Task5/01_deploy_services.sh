@@ -6,7 +6,7 @@ echo "=== Развертывание сервисов PropDevelopment ==="
 
 # Создаем namespace для Task 5
 echo "Создание namespace..."
-kubectl create namespace task5 >/dev/null 2>&1
+kubectl create namespace task5
 
 # Развертываем 4 сервиса с метками
 echo "Развертывание front-end сервиса..."
@@ -23,13 +23,13 @@ kubectl run admin-back-end-api-app --image=nginx --labels role=admin-back-end-ap
 
 # Ждем готовности подов
 echo "Ожидание готовности подов..."
-kubectl wait --for=condition=Ready pods --all --namespace=task5 --timeout=60s >/dev/null 2>&1
+kubectl wait --for=condition=Ready pods --all --namespace=task5 --timeout=60s
 
 # Устанавливаем wget в поды для тестирования
 echo "Установка wget в поды..."
 for pod in front-end-app back-end-api-app admin-front-end-app admin-back-end-api-app; do
-    kubectl exec $pod --namespace=task5 -- apt-get update >/dev/null 2>&1
-    kubectl exec $pod --namespace=task5 -- apt-get install -y wget >/dev/null 2>&1
+    kubectl exec $pod --namespace=task5 -- apt-get update
+    kubectl exec $pod --namespace=task5 -- apt-get install -y wget
 done
 
 echo "Сервисы развернуты успешно!"

@@ -5,20 +5,20 @@
 echo "=== Очистка ресурсов Task 5 ==="
 
 echo "Удаление подов..."
-kubectl delete pods --all --namespace=task5 2>/dev/null || true
+kubectl delete pods --all --namespace=task5 || true
 
 echo "Удаление сервисов..."
-kubectl delete services --all --namespace=task5 2>/dev/null || true
+kubectl delete services --all --namespace=task5 || true
 
 echo "Удаление сетевых политик..."
-kubectl delete networkpolicies --all --namespace=task5 2>/dev/null || true
+kubectl delete networkpolicies --all --namespace=task5 || true
 
 echo "Удаление namespace..."
-kubectl delete namespace task5 2>/dev/null || true
+kubectl delete namespace task5 || true
 
 echo "Удаление файлов конфигурации..."
-rm -f default-deny-all.yaml 2>/dev/null || true
-rm -f network-policies.yaml 2>/dev/null || true
+rm -f default-deny-all.yaml || true
+rm -f network-policies.yaml || true
 
 echo "Очистка завершена!"
 echo ""

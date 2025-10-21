@@ -91,11 +91,11 @@ EOF
 
 echo "Применение сетевых политик..."
 # Удаляем все существующие политики
-kubectl delete networkpolicy --all --namespace=task5 >/dev/null 2>&1 || true
+kubectl delete networkpolicy --all --namespace=task5 || true
 # Сначала применяем политику "deny all"
-kubectl apply -f default-deny-all.yaml >/dev/null 2>&1
+kubectl apply -f default-deny-all.yaml
 # Затем применяем разрешающие политики
-kubectl apply -f network-policies.yaml >/dev/null 2>&1
+kubectl apply -f network-policies.yaml
 
 echo "Сетевые политики созданы и применены!"
 echo ""
