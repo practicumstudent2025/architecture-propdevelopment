@@ -162,7 +162,11 @@ spec:
 EOF
 
 echo "Применение сетевых политик..."
+# Удаляем все существующие политики
+kubectl delete networkpolicy --all --namespace=task5 >/dev/null 2>&1 || true
+# Сначала применяем политику "deny all"
 kubectl apply -f default-deny-all.yaml >/dev/null 2>&1
+# Затем применяем разрешающие политики
 kubectl apply -f non-admin-api-allow.yaml >/dev/null 2>&1
 
 echo "Сетевые политики созданы и применены!"
